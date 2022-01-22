@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GDScript/PlayerGDScript.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FPSCounter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://FlashingLight.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.92549, 0.87451, 0.117647, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("CameraExample/Viewport")
+
+[node name="GameGDScript" type="Node"]
+
+[node name="LightContainer" type="Spatial" parent="."]
+
+[node name="FlashingLight" parent="LightContainer" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -11.3842, 4.08395, -9.91664 )
+
+[node name="FlashingLight2" parent="LightContainer" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.0415, 4.08395, -11.3372 )
+
+[node name="FlashingLight3" parent="LightContainer" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.0415, 4.08395, 9.73954 )
+
+[node name="FlashingLight4" parent="LightContainer" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.85931, 4.08395, 9.73954 )
+
+[node name="Map" type="Node" parent="."]
+
+[node name="Base" type="CSGBox" parent="Map"]
+use_collision = true
+width = 30.0
+height = 1.0
+depth = 30.0
+
+[node name="PlayerGDScript" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95932, 3.02236, 4.03809 )
+
+[node name="FPSCounter" parent="." instance=ExtResource( 2 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="PlatformContainer" type="Spatial" parent="."]
+
+[node name="Platform" type="CSGBox" parent="PlatformContainer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17076, 1.50366, -7.22971 )
+use_collision = true
+width = 4.0
+height = 1.0
+depth = 4.0
+material = SubResource( 2 )
+
+[node name="Platform2" type="CSGBox" parent="PlatformContainer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17076, 1.50366, 9.6873 )
+use_collision = true
+width = 4.0
+height = 1.0
+depth = 4.0
+material = SubResource( 2 )
+
+[node name="Platform3" type="CSGBox" parent="PlatformContainer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8082, 1.50366, 9.6873 )
+use_collision = true
+width = 4.0
+height = 1.0
+depth = 4.0
+material = SubResource( 2 )
+
+[node name="Platform4" type="CSGBox" parent="PlatformContainer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8082, 1.50366, -9.63414 )
+use_collision = true
+width = 4.0
+height = 1.0
+depth = 4.0
+material = SubResource( 2 )
+
+[node name="CameraExample" type="Spatial" parent="."]
+
+[node name="Viewport" type="Viewport" parent="CameraExample"]
+size = Vector2( 800, 600 )
+
+[node name="Camera" type="Camera" parent="CameraExample/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757952, 5.05815, 6.9701 )
+
+[node name="CameraPanel" type="CSGBox" parent="CameraExample"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0165892, 5.63128, -11.2047 )
+width = 10.0
+height = 10.0
+depth = 1.0
+material = SubResource( 3 )
+
+[node name="Sprite3D" type="Sprite3D" parent="CameraExample"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.29625, -10.6123 )
+texture = SubResource( 4 )
