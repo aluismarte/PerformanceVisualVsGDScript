@@ -1,0 +1,17 @@
+# Import cache
+.import/
+.mono/
+
+# Binaries
+bin/
+build/
+lib/
+
+# IDE
+.idea/
+.vscode/
+
+# Others
+export_presets.cfg
+*.translation
+
