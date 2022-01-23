@@ -31,9 +31,9 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.0415
 [node name="FlashingLight4" parent="LightContainer" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9.85931, 4.08395, 9.73954 )
 
-[node name="Node" type="Node" parent="."]
+[node name="Map" type="Node" parent="."]
 
-[node name="Base" type="CSGBox" parent="Node"]
+[node name="Base" type="CSGBox" parent="Map"]
 use_collision = true
 width = 30.0
 height = 1.0
