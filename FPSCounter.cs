@@ -3,10 +3,16 @@ using Godot;
 
 public class FPSCounter : Label
 {
-    private float _maxFps = 0;
-    private float _fps = 0;
+    private ulong _startTime;
+    private float _maxFps;
+    private float _fps;
 
-    private int count = 0;
+    private int _count;
+
+    public override void _Ready()
+    {
+        _startTime = OS.GetSystemTimeSecs();
+    }
 
     public override void _Process(float delta)
     {
@@ -16,14 +22,16 @@ public class FPSCounter : Label
             _maxFps = timeFps;
         }
 
-        count++;
+        OS.GetUnixTime();
+        _count++;
         _fps += timeFps;
-        Text = "FPS: " + timeFps;
+        Text = "FPS: " + timeFps + " -- Running Time: " + (OS.GetSystemTimeSecs() - _startTime + " Seconds");
     }
 
     public override void _ExitTree()
     {
+        Console.Out.WriteLine("Run Time: " + (OS.GetSystemTimeSecs() - _startTime));
         Console.Out.WriteLine("Max FPS: " + _maxFps);
-        Console.Out.WriteLine("FPS Average: " + (_fps / count));
+        Console.Out.WriteLine("FPS Average: " + (_fps / _count));
     }
 }
