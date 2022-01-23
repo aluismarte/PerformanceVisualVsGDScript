@@ -1,19 +1,22 @@
 ﻿# Performance Visual script vs GDScript on Godot
 
-Some elements are write on C# to skip this ok performance test (FPS Counter and flashlight)
+Some elements are write on C# to skip this on performance test (FPS Counter and FlashLight)
 
+# Benchmark
 
-Benchmark
+- No Debug
+- 60 Seconds without move camera
 
-# Tested on:
- - Intel Core I7 11370H 3.3 Ghz
- - 16 GB Ram DDR4 3200
- - NVidia Geforce RTX 3060 Laptop GPU
+## Tested on:
 
-# Results
+- Intel Core I7 11370H 3.3 Ghz
+- 16 GB Ram DDR4 3200
+- NVidia Geforce RTX 3060 Laptop GPU
+
+## Results
 
 | Language      | Max FPS | Stable FPS |
 |---------------|:-------:|:----------:|
-| Visual Script |   856   |
-| GDScript      |   833   |
+| Visual Script |   888   |  826.5957  |
+| GDScript      |   860   |  828.6711  |
 
